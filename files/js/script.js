@@ -7,7 +7,7 @@
 	========================================================================== */
 	function init() {
 
-		var $textarea = $('#board');
+		var $board = $('#board');
 		var $status   = $('#status');
 		var $speek    = $('#speek');
 		var $start    = $('#start');
@@ -20,7 +20,7 @@
 		$clear.on({ 'click':onClear });
 
 		window.SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
-		var rec = new webkitSpeechRecognition();
+		var rec = new SpeechRecognition();
 
 		rec.interimResults = true;
 		rec.continuous = true;
@@ -50,16 +50,34 @@
 
 		function set(results) {
 
-			var text = '';
-			for (var i = 0; i < results.length; i++) {
+			var text   = '';
+			var length = results.length;
+			for (var i = 0; i < length; i++) {
 
+				var isLast = (length - 1 == i);
 				var target = results[i];
 				var val    = target[0].transcript;
+
+				if (isLast && -1 < val.indexOf('級数上げて')) {
+					var size = Std.parseInt($board.css('font-size')) + 1;
+					$board.css({ 'font-size':size });
+				}
+
+				if (isLast && -1 < val.indexOf('級数下げて')) {
+					var size = Std.parseInt($board.css('font-size')) - 1;
+					$board.css({ 'font-size':size });
+				}
+
+				if (-1 < val.indexOf('級数上げて')) val = val.replace( /級数上げて/g,'');
+				if (-1 < val.indexOf('級数下げて')) val = val.replace( /級数下げて/g,'');
+				if (-1 < val.indexOf('ラーメン')) val = val.replace( /ラーメン/g,'🍜');
+				if (-1 < val.indexOf('カレー')) val = val.replace( /カレー/g,'🍛');
+
 				text += val;
 				if (target.isFinal) text += '\n';
 
 			}
-			$textarea.val(text);
+			$board.val(text);
 
 		}
 
