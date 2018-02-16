@@ -58,18 +58,18 @@
 				var target = results[i];
 				var val    = target[0].transcript;
 
-				if (isLast && -1 < val.indexOf('級数上げて')) {
+				if (isLast && -1 < val.indexOf('級数上げ')) {
 					var size = Std.parseInt($board.css('font-size')) + 1;
 					$board.css({ 'font-size':size });
 				}
 
-				if (isLast && -1 < val.indexOf('級数下げて')) {
+				if (isLast && -1 < val.indexOf('級数下げ')) {
 					var size = Std.parseInt($board.css('font-size')) - 1;
 					$board.css({ 'font-size':size });
 				}
 
-				if (-1 < val.indexOf('級数上げて')) val = val.replace( /級数上げて/g,'');
-				if (-1 < val.indexOf('級数下げて')) val = val.replace( /級数下げて/g,'');
+				if (-1 < val.indexOf('級数上げ')) val = val.replace( /級数上げ/g,'');
+				if (-1 < val.indexOf('級数下げ')) val = val.replace( /級数下げ/g,'');
 				if (-1 < val.indexOf('ラーメン')) val = val.replace( /ラーメン/g,'🍜');
 				if (-1 < val.indexOf('カレー')) val = val.replace( /カレー/g,'🍛');
 
