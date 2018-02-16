@@ -2,11 +2,58 @@
 <html lang="ja">
 <head>
 <title>Speech Recognition Test</title>
+<style type="text/css">
+@keyframes jumping {
+	0%   { transform: scale(1.0, 1.0) translate(0%, 0%); }
+	15%  { transform: scale(0.9, 0.9) translate(0%, 5%); }
+	30%  { transform: scale(1.3, 0.8) translate(0%, 10%); }
+	50%  { transform: scale(0.8, 1.3) translate(0%, -10%); }
+	70%  { transform: scale(1.1, 0.9) translate(0%, 5%); }
+	100% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+}
+body {
+	text-align: center;
+}
+button {
+	display: inline-block;
+}
+img {
+	width: 100%;
+}
+#status {
+	display: inline-block;
+	position: relative;
+	top: -5px;
+	width: 1em;
+	height: 1em;
+	margin: 0 0 0 0;
+	border-radius: 50%;
+	background-color: #aaa;
+}
+#status.on {
+	background-color: #dd2727;
+}
+#speek {
+	display: inline-block;
+	opacity: .3;
+	width: 2em;
+	height: 1em;
+}
+#speek.on {
+	opacity: 1;
+	animation: jumping 0.5s linear 0s infinite;
+}
+</style>
 </head>
 <body>
 	<textarea id="board" cols="100" rows="40"></textarea>
 	<div>
+		<p id="status"></p>
+		<p id="speek"><img src="files/img/speek.png" alt=""></p>
+	</div>
+	<div>
 		<button id="start">start</button>
+		<button id="stop">stop</button>
 		<button id="clear">clear</button>
 		<select id="select">
 			<option value="ja-JP">ja-JP</option>
