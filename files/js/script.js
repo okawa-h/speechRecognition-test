@@ -7,6 +7,8 @@
 	========================================================================== */
 	function init() {
 
+		var textArray = [];
+
 		var $board  = $('#board');
 		var $status = $('#status');
 		var $speek  = $('#speek');
@@ -23,6 +25,7 @@
 
 		rec.onresult = function(event) {
 
+			if (!$speek.hasClass('on')) return;
 			set(event.results);
 
 		}
@@ -42,18 +45,25 @@
 
 		function set(results) {
 
-			var text   = '';
+			var text = '';
+
+			for (var i = 0; i < textArray.length; i++) {
+				text += textArray[i] + '\n\n';
+			}
+
+			var value  = '';
 			var length = results.length;
 			for (var i = 0; i < length; i++) {
 
 				var target = results[i];
 				var val    = target[0].transcript;
-				text += processing(val);
+				value += processing(val);
 
-				if (target.isFinal) text += '\n';
+				if (target.isFinal) value += '\n';
 
 			}
-			$board.val(text);
+
+			$board.val(text + value).data('value',value);
 
 		}
 
@@ -81,6 +91,10 @@
 
 			if (!$status.hasClass('on')) return;
 			$status.removeClass('on');
+
+			var val = $board.data('value');
+			textArray.push(val);
+			console.log(textArray)
 			rec.stop();
 
 		}
@@ -88,6 +102,7 @@
 		function onClear() {
 
 			$board.val('');
+			textArray = [];
 
 		}
 
@@ -99,7 +114,7 @@
 				val = val.replace( /カレー/g,'🍛');
 				val = val.replace( /おにぎり/g,'🍙');
 				val = val.replace( /日本/g,'🇯🇵');
-				
+
 			}
 
 
