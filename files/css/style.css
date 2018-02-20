@@ -1,0 +1,116 @@
+@charset "UTF-8";
+@import url('./base.css');
+
+/*-------------------------------------------------------------------------
+	Init
+/*-----------------------------------------------------------------------*/
+@keyframes jumping {
+	0%   { transform: scale(1.0, 1.0) translate(0%, 0%); }
+	15%  { transform: scale(0.9, 0.9) translate(0%, 5%); }
+	30%  { transform: scale(1.3, 0.8) translate(0%, 10%); }
+	50%  { transform: scale(0.8, 1.3) translate(0%, -10%); }
+	70%  { transform: scale(1.1, 0.9) translate(0%, 5%); }
+	100% { transform: scale(1.0, 1.0) translate(0%, 0%); }
+}
+
+body {
+	font-size: 14px;
+	text-align: center;
+	-webkit-font-smoothing: antialiased;
+}
+
+img {
+	width: 100%;
+}
+
+.wrap {
+	width: calc(100% - 4rem);
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+.button {
+	display: inline-block;
+	margin: 0 .5em;
+	padding: .5em 2em;
+	border-radius: 3px;
+	background-color: #bbb;
+	font-size: 1rem;
+	line-height: 1;
+	transition: all .15s ease-in-out;
+}
+
+.button:hover {
+	background-color: #333;
+	color: #fff;
+}
+
+h1 {
+	padding: 2em 0 .2em;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.description {
+	margin-bottom: 2em;
+}
+
+/*-------------------------------------------------------------------------
+	View Status
+/*-----------------------------------------------------------------------*/
+#view-status {
+	margin-bottom: 1rem;
+}
+
+	#view-status p {
+		display: inline-block;
+		margin: 0 10px;
+	}
+
+#status {
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+	background-color: #aaa;
+}
+
+#status.on {
+	background-color: #dd2727;
+}
+
+#speek {
+	opacity: .3;
+	width: 2em;
+	height: 1em;
+}
+
+#speek.on {
+	opacity: 1;
+	animation: jumping 0.5s linear 0s infinite;
+}
+
+/*-------------------------------------------------------------------------
+	Control
+/*-----------------------------------------------------------------------*/
+#control {
+	margin-bottom: 1rem;
+}
+
+#select {
+	width: 80px;
+	height: 28px;
+	font-size: .8rem;
+}
+
+
+#board {
+	display: block;
+	width: calc(100% - 2em);
+	min-height: 300px;
+	margin-bottom: 1rem;
+	padding: 1em;
+	border: none;
+	background-color: #eee;
+	font-size: .9rem;
+}
+

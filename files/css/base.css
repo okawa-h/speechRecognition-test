@@ -1,0 +1,121 @@
+/*-------------------------------------------------------------------------
+	Init
+/*-----------------------------------------------------------------------*/
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	overflow-y: scroll;
+	word-break: break-all;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+:focus {
+	outline: 0;
+}
+
+ins {
+	text-decoration: none;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+img {
+	border: 0;
+	vertical-align: bottom;
+}
+
+address {
+	font-style: normal;
+}
+
+/*-------------------------------------------------------------------------
+	Setup
+/*-----------------------------------------------------------------------*/
+body {
+	color: #3b3b3b;
+	font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+
+p,
+li,
+dt,
+dl {
+	line-height:1.6;
+	letter-spacing:.5px;
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: normal;
+}
+
+/*-------------------------------------------------------------------------
+	Anchor
+/*-----------------------------------------------------------------------*/
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+button{
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	outline: none;
+	cursor: pointer;
+	appearance: none;
+}
+
+/*-------------------------------------------------------------------------
+	Clearfix
+/*-----------------------------------------------------------------------*/
+div,
+ul,
+dl,
+ol {
+  zoom: 1;
+}
+
+header:after,
+section:after,
+div:after,
+ul:after,
+li:after,
+dl:after,
+ol:after {
+  content: '';
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
