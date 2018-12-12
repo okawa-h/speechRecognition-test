@@ -114,7 +114,8 @@
 				val = val.replace( /カレー/g,'🍛');
 				val = val.replace( /おにぎり/g,'🍙');
 				val = val.replace( /日本/g,'🇯🇵');
-				val = val.replace( /みーちゃん/g,'🐨');
+				val = val.replace( /炎/g,'🔥');
+				val = val.replace( /火/g,'🔥');
 				val = val.replace( /可愛い/g,'🐹');
 
 			}
